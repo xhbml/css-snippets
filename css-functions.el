@@ -5,21 +5,20 @@
 		(insert text)
 		(let ((new-pnt (point)))
 			(indent-region old-pnt new-pnt))))
-	
-;; Sjekk om indent-region kan brukes for å indentere koden
-;;  (newline-and-indent) 
-;; evt. finn funksjon som gjør det
+
+
 (defun cssf-gradient ( start stop)
 	"Returns CSS code for a two-color vertical gradient"
 	(interactive "sStart color: \nsStop color:")
 	(save-excursion 
 		(insert-and-indent (format "
-background-image: -o-linear-gradient(%s, %s); /* Opera */
 background-image: -moz-linear-gradient(%s, %s); /* Mozilla */
 background-image: -ms-linear-gradient(%s, %s); /* IE 10 */
+background-image: -o-linear-gradient(%s, %s); /* Opera */
 background-image: -webkit-linear-gradient(%s, %s); /* Chrome, Safari */
 background-image: linear-gradient(%s, %s); /* W3C standard */
 " start stop start stop start stop start stop start stop ))))
+
 
 (defun cssf-multicol (number width spacing)
 	"CSS code for multiple columns"
